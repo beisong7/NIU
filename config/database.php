@@ -15,8 +15,8 @@ return [
     |
     */
 
-//    'default' => env('DB_CONNECTION', 'mysql'),
-    'default' => 'azure_tovm',
+    'default' => env('DB_CONNECTION', 'mysql'),
+//    'default' => 'azure_tovm',
 
     /*
     |--------------------------------------------------------------------------
