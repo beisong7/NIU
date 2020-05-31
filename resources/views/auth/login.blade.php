@@ -7,8 +7,8 @@
 
         <div class=" flex-column flex-sm-row align-items-center justify-content-center">
             <img src="{{ asset('images/logo.png') }}" class="home-logo" alt="logo icon">
-            <div class="texthead">Welcome Back to Supreme Court of Nigeria's Legal Mail platform</div>
-            <div style="color: #1b5e20" class="description mt-2">Kindly Supply your Username and Password to login</div>
+            <div class="texthead text-gold">Welcome Back to NIU Customer Relationship Management platform</div>
+            <div class="description mt-2 text-gold">Kindly Supply your Username and Password to login</div>
             @include('layouts.notice')
         </div>
 
@@ -34,7 +34,7 @@
             </div>
 
             <div>
-                <a href="{{ route('password_reset.start') }}" class="txt1">
+                <a href="#" class="txt1">
                     Forgot Password?
                 </a>
             </div>
@@ -47,19 +47,6 @@
             </button>
         </div>
 
-        <div class="btn-group d-flex mt-3 mb-3 justify-content-center" role="group" >
-            <a href="#" class="btn btn-outline-success" type="button">
-                Check Email
-            </a>
-            <a href="#" class="btn btn-outline-success " type="button">
-                Check Status
-            </a>
-        </div>
-
-        <div class="register d-flex flex-column flex-sm-row align-items-center justify-content-center mt-8 mb-6 mx-auto">
-            <span class="text mr-sm-2">Don't have LegalMail account?</span>
-            <a class="link text-secondary" href="#">Create an account</a>
-        </div>
     </form>
 
 

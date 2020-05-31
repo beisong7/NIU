@@ -19,12 +19,9 @@ Route::post('check/lawyer', 'AuthController@passwordResetStart')->name('password
 Route::post('update/lawyer/password', 'AuthController@passwordResetUpdate')->name('password.reset.update');
 
 
-//not logged in rutes
-Route::group(['middleware'=>'check_lawyer'], function () {
-    Route::get('/', 'HomeController@index')->name('home');
-    Route::get('/forgot-password', 'HomeController@resetPasswordStart')->name('password_reset.start');
-    Route::get('/password-reset/{secret}/lawyer', 'AuthController@resetPasswordPage')->name('password.reset.page');
-});
+Route::get('/', 'HomeController@login')->name('home');
+Route::get('/forgot-password', 'HomeController@resetPasswordStart')->name('password_reset.start');
+Route::get('/password-reset/{secret}/lawyer', 'AuthController@resetPasswordPage')->name('password.reset.page');
 
 
 
