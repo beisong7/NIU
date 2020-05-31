@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form class="login100-form validate-form" method="post" action="{{ route('lawyer.validate') }}">
+    <form class="login100-form validate-form" method="post" action="{{ route('admin.validate') }}">
         {{ csrf_field() }}
 
         <div class=" flex-column flex-sm-row align-items-center justify-content-center">
@@ -13,9 +13,9 @@
         </div>
 
         <div class="wrap-input100 mt-5">
-            <input class="input100" type="text" name="user_name" value="{{ old('user_name') }}" required="required" autocomplete="off" autofocus>
+            <input class="input100" type="email" name="email" value="{{ old('email') }}" required="required" autocomplete="off" autofocus>
             <span class="focus-input100"></span>
-            <span class="label-input100">Username</span>
+            <span class="label-input100">Email</span>
         </div>
 
 
