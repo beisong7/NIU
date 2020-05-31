@@ -42,6 +42,15 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+    public function getfullnameAttribute(){
+        return ${"$this->first_name $this->last_name"};
+    }
+
+    public function getStatusAttribute(){
+        return "Opportunity";
+    }
+
     protected $hidden = [
         'password', 'remember_token',
     ];

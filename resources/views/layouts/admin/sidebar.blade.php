@@ -23,12 +23,6 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="{{ route('lawyers.submitted') }}" class=" waves-effect">
-                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-sign-in-alt"></i></div>
-                        <span>Approvals</span>
-                    </a>
-                </li>
             </ul>
 
         </div>

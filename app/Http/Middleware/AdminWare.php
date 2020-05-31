@@ -19,8 +19,11 @@ class AdminWare
     {
         if(Auth::guard('admin')){
             $admin = Auth::guard('admin')->user();
-            View::share('person', $admin);
-            return $next($request);
+            if(!empty($admin)){
+                View::share('person', $admin);
+                return $next($request);
+            }
+
         }
         return redirect()->route('home');
     }

@@ -14,6 +14,7 @@ class AuthController extends Controller
         $password = $request->input('password');
 
         $credentials = ['email' => $email, 'password' => $password];
+
         if (Auth::guard('admin')->attempt($credentials)) {
             return redirect()->route('admin.dashboard');
         }
@@ -23,4 +24,6 @@ class AuthController extends Controller
 
 
     }
+
+
 }

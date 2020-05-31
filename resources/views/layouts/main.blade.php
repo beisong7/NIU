@@ -12,6 +12,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="icon" type="image/png" href="{{ asset('images/niu.png') }}"/>
+
     <!-- datepicker -->
     <link href="{{ asset('admin/libs/air-datepicker/css/datepicker.min.css') }}" rel="stylesheet" type="text/css" />
 
@@ -19,11 +21,13 @@
     <link href="{{ asset('admin/libs/jqvmap/jqvmap.min.css') }}" rel="stylesheet" />
 
     <!-- Bootstrap Css -->
-    <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    {{--<link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />--}}
+    <link href="{{ asset('admin/css/bootstrap-dark.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
     <link href="{{ asset('admin/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="{{ asset('admin/css/app.min.css') }}" rel="stylesheet" type="text/css" />
+    {{--<link href="{{ asset('admin/css/app.min.css') }}" rel="stylesheet" type="text/css" />--}}
+    <link href="{{ asset('admin/css/app-dark.min.css') }}" rel="stylesheet" type="text/css" />
 
 
 </head>
@@ -33,14 +37,7 @@
 
         @include('layouts.admin.topbar')
 
-        @if($person->admin)
-
-            @include('layouts.admin.sidebar')
-        @else
-
-            @include('layouts.lawyer.sidebar')
-        @endif
-
+        @include('layouts.admin.sidebar')
 
         <div class="main-content">
 

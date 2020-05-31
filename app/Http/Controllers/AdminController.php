@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -22,6 +23,16 @@ class AdminController extends Controller
             'photo',
             'last_seen',
         ])->orderBy('id', 'desc')->paginate(50);
-        return view('pages.admin.dashboard.index')->with('users', $users);
+        $inactive = User::where('active', false)->select(['id'])->get();
+        return view('pages.admin.dashboard.index')
+            ->with([
+                'users' => $users,
+                'inactive'=>$inactive
+            ]);
+    }
+
+    public function logoutUser(Request $request){
+        Auth::guard('admin')->logout();
+        return back();
     }
 }

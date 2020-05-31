@@ -262,7 +262,7 @@ iframe {
   width: 560px;
   min-height: 100vh;
   display: block;
-  background-color: #000000;
+  background-color: #27333A;
   padding: 55px 55px 55px 55px;
 }
 
@@ -323,7 +323,7 @@ iframe {
   background: transparent;
   font-family: Montserrat-Regular;
   font-size: 18px;
-  color: #555555;
+  color: #cfbc1b;
   line-height: 1.2;
   padding: 0 26px;
 }

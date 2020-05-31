@@ -5,19 +5,19 @@
             <div class="navbar-brand-box">
                 <a href="#" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="{{ url('images/logo.png') }}" alt="" height="22">
+                                    <img src="{{ url('images/niu_logo.png') }}" alt="" height="32">
                                 </span>
                     <span class="logo-lg">
-                                    <img src="{{ url('images/logo.png') }}" alt="" height="20">
+                                    <img src="{{ url('images/logo.png') }}" alt="" height="40">
                                 </span>
                 </a>
 
                 <a href="#" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="{{ url('images/logo.png') }}" alt="" height="22">
+                                    <img src="{{ url('images/niu_logo.png') }}" alt="" height="32">
                                 </span>
                     <span class="logo-lg">
-                                    <img src="{{ url('images/logo.png') }}" alt="" height="20">
+                                    <img src="{{ url('images/logo.png') }}" alt="" height="40">
                                 </span>
                 </a>
             </div>

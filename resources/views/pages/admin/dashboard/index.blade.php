@@ -6,9 +6,9 @@
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-md-8">
-                    <h4 class="page-title mb-1">Dashboard</h4>
+                    <h4 class="page-title mb-1">NIU CMS </h4>
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item active">Welcome to Legal Mail Version 2</li>
+                        <li class="breadcrumb-item active">Welcome to NIU CMS Dashboard</li>
                     </ol>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                                     <p class="text-muted">{{ $person->name }}</p>
 
                                     <div class="mt-4">
-                                        <p class="font-weight-bold">{{ empty($person->adminType)?'Analyst':'Super Admin' }}</p>
+                                        <p class="font-weight-bold">{{ empty($person->adminType)?'Admin':$person->adminType }}</p>
                                     </div>
                                 </div>
 
@@ -42,14 +42,14 @@
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="header-title mb-4">Lawyer Report</h5>
+                            <h5 class="header-title mb-4">Users Report</h5>
                             <div class="media">
                                 <div class="media-body">
-                                    <p class="text-muted mb-2">Total Lawyers on System</p>
-                                    <h4>{{ $total }}</h4>
+                                    <p class="text-muted mb-2">Total Users on System</p>
+                                    <h4>{{ $users->count() }}</h4>
                                     <hr>
-                                    <p class="text-muted mb-2">Inactive Lawyers </p>
-                                    <h4>{{ $inactive }}</h4>
+                                    <p class="text-muted mb-2">Inactive Users </p>
+                                    <h4>{{ $inactive->count() }}</h4>
                                 </div>
                             </div>
 
@@ -68,7 +68,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <h5 class="header-title mb-4">Lawyers Report</h5>
+                            <h5 class="header-title mb-4">Users Usage</h5>
                             <div id="yearly-sale-chart" class="apex-charts"></div>
                         </div>
                     </div>
@@ -81,15 +81,15 @@
                 <div class="col-lg-4">
                     <div class="card">
                         <div class="card-header bg-transparent p-3">
-                            <h5 class="header-title mb-0">Lawyers Status</h5>
+                            <h5 class="header-title mb-0">User Status</h5>
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <div class="media my-2">
 
                                     <div class="media-body">
-                                        <p class="text-muted mb-2">Active</p>
-                                        <h5 class="mb-0">{{ $active }}</h5>
+                                        <p class="text-muted mb-2">Leads</p>
+                                        <h5 class="mb-0">4</h5>
                                     </div>
                                     <div class="icons-lg ml-2 align-self-center">
                                         <i class="uim uim-check-circle"></i>
@@ -99,8 +99,8 @@
                             <li class="list-group-item">
                                 <div class="media my-2">
                                     <div class="media-body">
-                                        <p class="text-muted mb-2">Approved</p>
-                                        <h5 class="mb-0">{{ $approved }}</h5>
+                                        <p class="text-muted mb-2">Pospective</p>
+                                        <h5 class="mb-0">97</h5>
                                     </div>
                                     <div class="icons-lg ml-2 align-self-center">
                                         <i class="uim uim-clock-nine"></i>
@@ -110,8 +110,8 @@
                             <li class="list-group-item">
                                 <div class="media my-2">
                                     <div class="media-body">
-                                        <p class="text-muted mb-2">Approved-Court</p>
-                                        <h5 class="mb-0">{{ $approved }}</h5>
+                                        <p class="text-muted mb-2">Failed</p>
+                                        <h5 class="mb-0">12</h5>
                                     </div>
                                     <div class="icons-lg ml-2 align-self-center">
                                         <i class="uim uim-clock-eight"></i>
@@ -121,8 +121,8 @@
                             <li class="list-group-item">
                                 <div class="media my-2">
                                     <div class="media-body">
-                                        <p class="text-muted mb-2">Submitted</p>
-                                        <h5 class="mb-0">{{ $submitted }}</h5>
+                                        <p class="text-muted mb-2">Closed</p>
+                                        <h5 class="mb-0">30</h5>
                                     </div>
                                     <div class="icons-lg ml-2 align-self-center">
                                         <i class="uim uim-layers-alt"></i>
@@ -133,7 +133,7 @@
                                 <div class="media my-2">
                                     <div class="media-body">
                                         <p class="text-muted mb-2">Rejected</p>
-                                        <h5 class="mb-0">{{ $rejected }}</h5>
+                                        <h5 class="mb-0">4</h5>
                                     </div>
                                     <div class="icons-lg ml-2 align-self-center">
                                         <i class="uim uim-exclamation-triangle"></i>
@@ -149,26 +149,26 @@
                             <div class="float-right ml-2">
                                 <a href="#">View all</a>
                             </div>
-                            <h5 class="header-title mb-4">Lawyers</h5>
+                            <h5 class="header-title mb-4">Users</h5>
 
                             <div class="table-responsive">
                                 <table id="datatable" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
                                     <tr>
-                                        <th scope="col">Enrollment Number</th>
-                                        <th scope="col">Name</th>
+                                        <th scope="col">Names</th>
+                                        <th scope="col">Email</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Date</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($lawyers as $lawyer)
+                                    @foreach($users as $user)
                                         <tr>
-                                            <th scope="row"><a href="#">{{ $lawyer->EnrollmentNumber }}</a></th>
-                                            <td>{{ $lawyer->fullname }}</td>
-                                            <td>{{ $lawyer->Status }}</td>
-                                            <td>{{ date('F d, Y', strtotime($lawyer->Created)) }}</td>
+                                            <td>{{ $user->fullname }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $user->status }}</td>
+                                            <td>{{ $user->created_at->diffForHumans() }}</td>
                                             <td>
                                                 <div class="btn-group" role="group">
                                                     <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
