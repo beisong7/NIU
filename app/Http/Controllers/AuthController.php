@@ -25,5 +25,20 @@ class AuthController extends Controller
 
     }
 
+    public function mobileLogin(Request $request){
+        $email = $request->input('email');
+        $password = $request->input('password');
+
+        $credentials = ['email' => $email, 'password' => $password];
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            return response()->json($user, 200);
+        }
+        else {
+            return response()->json(['message'=>'authentication failed'], 403);
+        }
+    }
+
 
 }

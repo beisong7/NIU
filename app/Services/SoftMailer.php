@@ -47,7 +47,6 @@ class SoftMailer
         $headersMail .= 'Content-Transfer-Encoding: 7bit' . "\r\n";
 
 
-
 //        @mail($to,$subject, $htmlContent, $headersMail, $sender);
         @mail($to,$subject,$htmlContent,$headersMail, "-f ". $sender);
 

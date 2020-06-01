@@ -19,6 +19,7 @@ Route::post('check/admin', 'AuthController@passwordResetStart')->name('password.
 Route::post('update/admin/password', 'AuthController@passwordResetUpdate')->name('password.reset.update');
 
 Route::post('register/mobile', 'RegisterController@mobileReg');
+Route::post('login/mobile', 'AuthController@mobileLogin');
 
 Route::get('/', 'HomeController@login')->name('home');
 Route::get('/forgot-password', 'HomeController@resetPasswordStart')->name('password_reset.start');
