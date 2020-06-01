@@ -17,9 +17,16 @@
                 </li>
 
                 <li>
-                    <a href="#" class=" waves-effect">
+                    <a href="{{ route('create.user') }}" class=" waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-layer-group"></i></div>
+                        <span>Create Accounts</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('users') }}" class=" waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-grids"></i></div>
-                        <span>Create Account</span>
+                        <span>Users</span>
                     </a>
                 </li>
 

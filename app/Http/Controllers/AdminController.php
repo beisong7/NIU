@@ -20,6 +20,7 @@ class AdminController extends Controller
             'first_name',
             'last_name',
             'email',
+            'created_at',
             'photo',
             'last_seen',
         ])->orderBy('id', 'desc')->paginate(50);
@@ -29,6 +30,18 @@ class AdminController extends Controller
                 'users' => $users,
                 'inactive'=>$inactive
             ]);
+    }
+
+    public function users(){
+        $users = User::OrderBy('id', 'desc')->paginate(30);
+        return view('pages.admin.users.index')
+            ->with([
+                'users' => $users,
+            ]);
+    }
+
+    public function createUserPage(){
+        return view('pages.admin.users.create');
     }
 
     public function logoutUser(Request $request){

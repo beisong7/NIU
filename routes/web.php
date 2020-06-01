@@ -18,6 +18,7 @@ Route::post('authenticate/admin', 'AuthController@validateSystemAdmin')->name('a
 Route::post('check/admin', 'AuthController@passwordResetStart')->name('password.reset.start');
 Route::post('update/admin/password', 'AuthController@passwordResetUpdate')->name('password.reset.update');
 
+Route::post('register/mobile', 'RegisterController@mobileReg');
 
 Route::get('/', 'HomeController@login')->name('home');
 Route::get('/forgot-password', 'HomeController@resetPasswordStart')->name('password_reset.start');
@@ -27,6 +28,9 @@ Route::group(['middleware'=>'admin_ware'], function () {
 
     Route::prefix('admin')->group(function () {
         Route::get('dashboard', 'AdminController@dashboard')->name('admin.dashboard');
+        Route::get('create/user', 'AdminController@createUserPage')->name('create.user');
+        Route::post('create/user', 'RegisterController@createUser')->name('create.user');
+        Route::get('users', 'AdminController@users')->name('users');
     });
 
 });

@@ -37,18 +37,13 @@ class User extends Authenticatable
         'email_verified_at',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
 
-    public function getfullnameAttribute(){
-        return ${"$this->first_name $this->last_name"};
+    public function getFullNameAttribute(){
+        return "$this->first_name $this->last_name";
     }
 
     public function getStatusAttribute(){
-        return "Opportunity";
+        return "Lead - Opportunity";
     }
 
     protected $hidden = [
