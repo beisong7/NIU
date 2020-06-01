@@ -21,7 +21,7 @@ class SoftMailer
     public function sendMails($mail, $htmlContent, $title){
 
         $to = $mail;
-        $sender = "noreply@smileplanetef.com";
+        $sender = "noreply@niu.smileplanetef.org";
 
         $separator = md5(time());
         $eol = "\r\n";

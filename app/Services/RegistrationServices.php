@@ -25,7 +25,7 @@ class RegistrationServices {
         }
         $password = "";
         if($type==='mobile'){
-            $password = bcrypt($request->input('password'));
+            $password = bcrypt($request->input('pass'));
         }else{
             $password = bcrypt($request->input('phone'));
         }
