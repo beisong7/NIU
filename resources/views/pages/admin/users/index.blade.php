@@ -35,6 +35,7 @@
                                     <th scope="col">Email</th>
                                     <th scope="col">Create Channel</th>
                                     <th scope="col">Status</th>
+                                    <th scope="col">Assigned</th>
                                     <th scope="col">Created</th>
                                     <th scope="col">Action</th>
                                 </tr>
@@ -46,6 +47,7 @@
                                         <td>{{ $user->fullname }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->created_by }}</td>
+                                        <td>{{ $user->assigned }}</td>
                                         <td>{{ $user->status }}</td>
                                         <td>{{ $user->created_at->diffForHumans() }}</td>
                                         <td>
