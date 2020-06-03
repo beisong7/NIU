@@ -15,27 +15,27 @@ class SoftMailer
         $view = view('email.welcome')
             ->with("user", $user)
             ->with("token", encrypt($user->unid));
-        $this->sendMails($user->email, $view, 'Welcome to GT Bank');
+        $this->sendMails($user->email, $view, 'Welcome to NIU Properties');
     }
 
     public function sendMails($mail, $htmlContent, $title){
 
         $to = $mail;
-        $sender = "noreply@gtbank.com";
+        $sender = "noreply@niu.smileplanetef.org";
 
         $separator = md5(time());
         $eol = "\r\n";
 
         $subject = $title;
 
-        $fromMail = "GT Bank <$sender>";
+        $fromMail = "NIU Properties <$sender>";
 
         $headersMail = '';
 
         $headersMail .= "Reply-To:" . $fromMail . "\r\n";
         $headersMail .= "Return-Path: ". $fromMail ."\r\n";
         $headersMail .= 'From: ' . $fromMail . "\r\n";
-        $headersMail .= "Organization: GTBANK \r\n";
+        $headersMail .= "Organization: NIU \r\n";
 
         $headersMail .= 'MIME-Version: 1.0' . "\r\n";
 
