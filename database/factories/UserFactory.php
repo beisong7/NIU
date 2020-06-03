@@ -17,11 +17,22 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(User::class, function (Faker $faker) {
+    $category = ['lead', 'opportunity', 'out right sale'];
     return [
-        'name' => $faker->name,
+        'uuid' => (string) Str::uuid(),
+        'title' => $faker->title,
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,
+        'phone' => $faker->phoneNumber,
+        'address' => $faker->address,
+        'active' => true,
+        'status'=>$category[random_int(0,2)],
+        'assigned_to'=>1,
+        'password' => bcrypt('password'),
+        'last_seen' => $faker->unixTime,
+        'dob' => $faker->date('Y-m-d'),
         'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         'remember_token' => Str::random(10),
     ];
 });

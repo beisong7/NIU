@@ -24,17 +24,24 @@ class RegistrationServices {
 
         }
         $password = "";
+        $user = new User();
         if($type==='mobile'){
             $password = bcrypt($request->input('pass'));
+            $user->assigned_to = 1;
+            $user->status = "lead";
         }else{
+            $staff = $request->user('staff');
+            $user->assigned_to = !empty($staff)?$staff->id:1;
             $password = bcrypt($request->input('phone'));
+            $user->status = $request->input('status');
         }
 
-        $user = new User();
+
         $user->uuid = $this->generateId();
         $user->first_name = $request->input('firstName');
         $user->last_name = $request->input('lastName');
         $user->email = $email;
+
         $user->created_by = $type;
         $user->password = $password;
         $user->last_seen = time();

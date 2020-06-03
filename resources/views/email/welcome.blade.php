@@ -813,7 +813,7 @@
                                                     <tr>
                                                         <td align="center" valign="center" width="100%" class="Button-primary-wrapper" style="-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; display: table-cell; border-radius: 3px;">
                                                             <!--BUTTON RESET-->
-                                                            <a href="#" target="_blank" class="Button-primary" style="-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: &quot;GT America Medium&quot;, &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif; border-radius: 3px; display: block; font-size: 16px; color:#cfbc1b; font-weight: 600; padding: 18px; text-decoration: none;"> Activate Your Account</a>
+                                                            <a href="#" target="_blank" class="Button-primary" style="-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: &quot;GT America Medium&quot;, &quot;Roboto&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif; border-radius: 3px; display: block; font-size: 16px; color:#cfbc1b; font-weight: 600; padding: 18px; text-decoration: none;"> Learn More </a>
 
                                                         </td>
                                                     </tr>

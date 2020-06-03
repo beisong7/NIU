@@ -62,6 +62,17 @@
                                 </div>
 
                                 <div class="form-group row">
+                                    <label for="status" class="col-md-2 col-form-label">Category</label>
+                                    <div class="col-md-10">
+                                        <select name="status" class="form-control" id="status">
+                                            <option value="lead">Lead</option>
+                                            <option value="opportunity">Opportunity</option>
+                                            <option value="outright sale">Outright Sale</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
                                     <label for="firstName" class="col-md-2 col-form-label">Create</label>
                                     <div class="col-md-10">
                                         <div class="row">
