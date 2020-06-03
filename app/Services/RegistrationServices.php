@@ -47,12 +47,9 @@ class RegistrationServices {
         $user->last_seen = time();
         $user->save();
 
-        //send email
-        $this->sendMail("welcome", $user, $type);
-
-
         if($type==='mobile'){
-
+            //send email
+            $this->sendMail("welcome", $user, $type);
             return response()->json($user, 200);
         }else{
             return redirect()->route('users')->withMessage('New Prospect Created');
