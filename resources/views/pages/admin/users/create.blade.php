@@ -36,35 +36,35 @@
                                 <div class="form-group row">
                                     <label for="firstName" class="col-md-2 col-form-label">First Name</label>
                                     <div class="col-md-10">
-                                        <input class="form-control" id="firstName" type="text" placeholder="First Name" autocomplete="off" name="firstName" value="{{ old('firstName') }}">
+                                        <input class="form-control" id="firstName" type="text" placeholder="First Name" autocomplete="off" name="firstName" value="{{ old('firstName') }}" required="required">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="lastName" class="col-md-2 col-form-label">Last Name</label>
                                     <div class="col-md-10">
-                                        <input class="form-control" id="lastName" type="text" placeholder="Last Name" autocomplete="off" name="lastName" value="{{ old('lastName') }}">
+                                        <input class="form-control" id="lastName" type="text" placeholder="Last Name" autocomplete="off" name="lastName" value="{{ old('lastName') }}" required="required">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="email" class="col-md-2 col-form-label">Email</label>
                                     <div class="col-md-10">
-                                        <input class="form-control" id="email" type="email" placeholder="Email" autocomplete="off" name="email" value="{{ old('email') }}">
+                                        <input class="form-control" id="email" type="email" placeholder="Email" autocomplete="off" name="email" value="{{ old('email') }}" required="required">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="phone" class="col-md-2 col-form-label">Phone</label>
                                     <div class="col-md-10">
-                                        <input class="form-control" id="phone" type="text" placeholder="phone number" autocomplete="off" name="phone" value="{{ old('phone') }}">
+                                        <input class="form-control" id="phone" type="text" placeholder="phone number" autocomplete="off" name="phone" value="{{ old('phone') }}" required="required">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="status" class="col-md-2 col-form-label">Category</label>
                                     <div class="col-md-10">
-                                        <select name="status" class="form-control" id="status">
+                                        <select name="status" class="form-control" id="status" required="required">
                                             <option value="lead">Lead</option>
                                             <option value="opportunity">Opportunity</option>
                                             <option value="outright sale">Outright Sale</option>

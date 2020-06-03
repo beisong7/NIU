@@ -30,7 +30,7 @@ class RegistrationServices {
             $user->assigned_to = 1;
             $user->status = "lead";
         }else{
-            $staff = $request->user('staff');
+            $staff = $request->user('admin');
             $user->assigned_to = !empty($staff)?$staff->id:1;
             $password = bcrypt($request->input('phone'));
             $user->status = $request->input('status');
