@@ -47,7 +47,7 @@
                                         <tr>
                                             <td>{{ $user->fullname }}</td>
                                             <td>{{ $user->email }}</td>
-                                            <td>{{ $user->createdBy }}</td>
+                                            <td>{{ $user->creatChannel }}</td>
                                             <td>{{ $user->assigned }}</td>
                                             <td>{{ $user->status }}</td>
                                             <td>{{ $user->created_at->diffForHumans() }}</td>

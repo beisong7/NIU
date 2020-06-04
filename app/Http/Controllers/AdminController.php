@@ -41,6 +41,7 @@ class AdminController extends Controller
 
     public function users(){
         $users = User::OrderBy('id', 'desc')->paginate(30);
+
         return view('pages.admin.users.index')
             ->with([
                 'users' => $users,

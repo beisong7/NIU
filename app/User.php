@@ -63,7 +63,7 @@ class User extends Authenticatable
         return !empty($admin)?$admin->first_name:"not assigned";
     }
 
-    public function getcreatedByAttribute(){
-        return !empty($this->created_by)?$this->created_by:"admin";
+    public function getcreatChannelAttribute(){
+        return !empty($this->created_by)?$this->created_by:'admin';
     }
 }
