@@ -39,13 +39,13 @@
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="header-title mb-4">Users Report</h5>
+                            <h5 class="header-title mb-4"> Report</h5>
                             <div class="media">
                                 <div class="media-body">
-                                    <p class="text-muted mb-2">Total Users on System</p>
+                                    <p class="text-muted mb-2">Total Accounts on System</p>
                                     <h4>{{ $users->count() }}</h4>
                                     <hr>
-                                    <p class="text-muted mb-2">Inactive Users </p>
+                                    <p class="text-muted mb-2">Inactive Account </p>
                                     <h4>{{ $inactive->count() }}</h4>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <h5 class="header-title mb-4">Users Usage</h5>
+                            <h5 class="header-title mb-4">Accounts Statistics</h5>
                             <div id="yearly-sale-chart" class="apex-charts"></div>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                 <div class="col-lg-4">
                     <div class="card">
                         <div class="card-header bg-transparent p-3">
-                            <h5 class="header-title mb-0">User Status</h5>
+                            <h5 class="header-title mb-0">Status</h5>
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
@@ -122,7 +122,7 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <h5 class="header-title mb-4">Users</h5>
+                            <h5 class="header-title mb-4">Recent Accounts</h5>
 
                             <div class="table-responsive">
                                 <table id="datatable" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
