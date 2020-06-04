@@ -8,7 +8,7 @@
                 <div class="col-md-8">
                     <h4 class="page-title mb-1">Accounts</h4>
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                         <li class="breadcrumb-item text-white">Prospects </li>
                     </ol>
                 </div>
