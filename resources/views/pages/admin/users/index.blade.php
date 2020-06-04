@@ -27,46 +27,49 @@
                             <h4 class="header-title">Prospects</h4>
 
                             @include('layouts.notice')
-                            <table id="" class="table table-bordered table-hover dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                <thead>
-                                <tr>
-
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Create Channel</th>
-                                    <th scope="col">Assigned To</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Created</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                                </thead>
-
-                                <tbody>
-                                @foreach($users as $user)
+                            <div class="table-responsive">
+                                <table id="" class="table table-bordered table-hover dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                    <thead>
                                     <tr>
-                                        <td>{{ $user->fullname }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td>{{ $user->createdBy }}</td>
-                                        <td>{{ $user->assigned }}</td>
-                                        <td>{{ $user->status }}</td>
-                                        <td>{{ $user->created_at->diffForHumans() }}</td>
-                                        <td>
-                                            <div class="btn-group" role="group">
-                                                <a href="#" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Process">
-                                                    <i class="mdi mdi-check-circle"></i>
-                                                </a>
-                                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                    <i class="mdi mdi-pencil"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                    <i class="mdi mdi-trash-can"></i>
-                                                </button>
-                                            </div>
-                                        </td>
+
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Create Channel</th>
+                                        <th scope="col">Assigned To</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Created</th>
+                                        <th scope="col">Action</th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+
+                                    <tbody>
+                                    @foreach($users as $user)
+                                        <tr>
+                                            <td>{{ $user->fullname }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $user->createdBy }}</td>
+                                            <td>{{ $user->assigned }}</td>
+                                            <td>{{ $user->status }}</td>
+                                            <td>{{ $user->created_at->diffForHumans() }}</td>
+                                            <td>
+                                                <div class="btn-group" role="group">
+                                                    <a href="#" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Process">
+                                                        <i class="mdi mdi-check-circle"></i>
+                                                    </a>
+                                                    <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                        <i class="mdi mdi-pencil"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                        <i class="mdi mdi-trash-can"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+
                             <br>
                             {{ $users->links() }}
                         </div>
