@@ -35,6 +35,7 @@ class User extends Authenticatable
         'countdown_otp',
         'otp',
         'token',
+        'status',
         'theme_type',
         'email_verified_at',
     ];
@@ -42,10 +43,6 @@ class User extends Authenticatable
 
     public function getFullNameAttribute(){
         return "$this->first_name $this->last_name";
-    }
-
-    public function getStatusAttribute(){
-        return "Lead - Opportunity";
     }
 
     protected $hidden = [
@@ -62,7 +59,11 @@ class User extends Authenticatable
     ];
 
     public function getassignedAttribute(){
-        $admin = Admin::where('assigned_to', $this->assigned_to)->first();
+        $admin = Admin::where('id', $this->assigned_to)->first();
         return !empty($admin)?$admin->first_name:"not assigned";
+    }
+
+    public function getcreatedByAttribute(){
+        return !empty($this->created_by)?$this->created_by:"admin";
     }
 }

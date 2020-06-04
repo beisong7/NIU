@@ -20,15 +20,22 @@ class AdminController extends Controller
             'first_name',
             'last_name',
             'email',
+            'status',
             'created_at',
             'photo',
             'last_seen',
         ])->orderBy('id', 'desc')->paginate(50);
+        $leads = User::where('status', 'lead')->get()->count();
+        $opportunity = User::where('status', 'opportunity')->get()->count();
+        $outright = User::where('status', 'out right sale')->get()->count();
         $inactive = User::where('active', false)->select(['id'])->get();
         return view('pages.admin.dashboard.index')
             ->with([
                 'users' => $users,
-                'inactive'=>$inactive
+                'inactive'=>$inactive,
+                'opportunity'=>$opportunity,
+                'outright'=>$outright,
+                'leads'=>$leads
             ]);
     }
 

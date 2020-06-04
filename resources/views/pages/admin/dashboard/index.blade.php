@@ -25,11 +25,8 @@
                             <div class="row">
                                 <div class="col-6">
                                     <h5>Welcome Back!</h5>
-                                    <p class="text-muted">{{ $person->name }}</p>
+                                    <p class="text-muted">{{ $person->first_name. " " . $person->last_name }}</p>
 
-                                    <div class="mt-4">
-                                        <p class="font-weight-bold">{{ empty($person->adminType)?'Admin':$person->adminType }}</p>
-                                    </div>
                                 </div>
 
                                 <div class="col-5 ml-auto">
@@ -89,7 +86,7 @@
 
                                     <div class="media-body">
                                         <p class="text-muted mb-2">Leads</p>
-                                        <h5 class="mb-0">4</h5>
+                                        <h5 class="mb-0">{{ $leads }}</h5>
                                     </div>
                                     <div class="icons-lg ml-2 align-self-center">
                                         <i class="uim uim-check-circle"></i>
@@ -99,8 +96,8 @@
                             <li class="list-group-item">
                                 <div class="media my-2">
                                     <div class="media-body">
-                                        <p class="text-muted mb-2">Pospective</p>
-                                        <h5 class="mb-0">97</h5>
+                                        <p class="text-muted mb-2">Opportunity</p>
+                                        <h5 class="mb-0">{{ $opportunity }}</h5>
                                     </div>
                                     <div class="icons-lg ml-2 align-self-center">
                                         <i class="uim uim-clock-nine"></i>
@@ -110,33 +107,11 @@
                             <li class="list-group-item">
                                 <div class="media my-2">
                                     <div class="media-body">
-                                        <p class="text-muted mb-2">Failed</p>
-                                        <h5 class="mb-0">12</h5>
+                                        <p class="text-muted mb-2">Outright sales</p>
+                                        <h5 class="mb-0">{{ $outright }}</h5>
                                     </div>
                                     <div class="icons-lg ml-2 align-self-center">
                                         <i class="uim uim-clock-eight"></i>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="media my-2">
-                                    <div class="media-body">
-                                        <p class="text-muted mb-2">Closed</p>
-                                        <h5 class="mb-0">30</h5>
-                                    </div>
-                                    <div class="icons-lg ml-2 align-self-center">
-                                        <i class="uim uim-layers-alt"></i>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="media my-2">
-                                    <div class="media-body">
-                                        <p class="text-muted mb-2">Rejected</p>
-                                        <h5 class="mb-0">4</h5>
-                                    </div>
-                                    <div class="icons-lg ml-2 align-self-center">
-                                        <i class="uim uim-exclamation-triangle"></i>
                                     </div>
                                 </div>
                             </li>
@@ -146,9 +121,7 @@
                 <div class="col-lg-8">
                     <div class="card">
                         <div class="card-body">
-                            <div class="float-right ml-2">
-                                <a href="#">View all</a>
-                            </div>
+
                             <h5 class="header-title mb-4">Users</h5>
 
                             <div class="table-responsive">

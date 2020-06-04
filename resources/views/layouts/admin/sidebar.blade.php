@@ -26,7 +26,7 @@
                 <li>
                     <a href="{{ route('users') }}" class=" waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-grids"></i></div>
-                        <span>Users</span>
+                        <span>Prospects</span>
                     </a>
                 </li>
 

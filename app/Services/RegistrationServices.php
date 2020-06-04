@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Admin;
 use App\Traits\Utility;
 use App\User;
 use Illuminate\Http\Request;
@@ -24,10 +25,11 @@ class RegistrationServices {
 
         }
         $password = "";
+        $max = Admin::get()->count();
         $user = new User();
         if($type==='mobile'){
             $password = bcrypt($request->input('pass'));
-            $user->assigned_to = 1;
+            $user->assigned_to = $max>1?random_int(1, $max):1;
             $user->status = "lead";
         }else{
             $staff = $request->user('admin');
