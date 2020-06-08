@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->boolean('active')->nullable();
             $table->string('password')->nullable();
             $table->string('status')->nullable(); // lead, opportunity, out right sale, uncategorized
-            $table->bigInteger('assigned_to')->nullable(); //id of staff
+            $table->uuid('assigned_to')->nullable();//id of staff
             $table->bigInteger('last_seen')->nullable();
             $table->date('dob')->nullable();
             $table->bigInteger('countdown_pass')->nullable(); //countdown to expire token

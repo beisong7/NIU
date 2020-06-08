@@ -31,7 +31,23 @@ Route::group(['middleware'=>'admin_ware'], function () {
         Route::get('dashboard', 'AdminController@dashboard')->name('admin.dashboard');
         Route::get('create/user', 'AdminController@createUserPage')->name('create.user');
         Route::post('create/user', 'RegisterController@createUser')->name('create.user');
-        Route::get('users', 'AdminController@users')->name('users');
+        Route::get('accounts', 'AdminController@users')->name('users');
+        Route::get('my-clients', 'AdminController@myClients')->name('users.my');
+        Route::get('reports', 'ReportController@index')->name('reports');
+        Route::get('accounts/summary/{year}', 'ReportController@summary')->name('accounts.summary');
+        Route::get('accounts/financial/{year}/{end}', 'ReportController@financial')->name('accounts.financial');
+        Route::get('accounts/update/financial', 'ReportController@financialUpdate')->name('accounts.update.financial');
     });
 
+});
+
+
+Route::get('/date', function(){
+    return [
+        date('Y-m-d h:i:s', strtotime('today')),
+        date('m'),
+        date('H', time()),
+        date('Y-m-d h:i:s', time()),
+        date('2020-06-07 06:56:21', time()),
+    ];
 });

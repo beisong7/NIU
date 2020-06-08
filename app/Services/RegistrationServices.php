@@ -25,11 +25,11 @@ class RegistrationServices {
 
         }
         $password = "";
-        $max = Admin::get()->count();
+        $admins = Admin::select(['uuid'])->get();;
         $user = new User();
         if($type==='mobile'){
             $password = bcrypt($request->input('pass'));
-            $user->assigned_to = $max>1?random_int(1, $max):1;
+            $user->assigned_to = $admins[random_int(0, $admins->count()-1)];
             $user->status = "lead";
         }else{
             $staff = $request->user('admin');

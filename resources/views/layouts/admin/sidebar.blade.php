@@ -26,7 +26,21 @@
                 <li>
                     <a href="{{ route('users') }}" class=" waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-grids"></i></div>
-                        <span>Prospects</span>
+                        <span>Accounts</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('users.my') }}" class=" waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-grids"></i></div>
+                        <span>My Clients</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('reports') }}" class=" waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-analytics"></i></div>
+                        <span>Reports</span>
                     </a>
                 </li>
 

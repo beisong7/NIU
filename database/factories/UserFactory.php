@@ -17,7 +17,15 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(User::class, function (Faker $faker) {
-    $category = ['lead', 'opportunity', 'out right sale'];
+    $category = ['lead', 'opportunity', 'outright sale'];
+    $status = [0,1,2,1,0,1,2,1,0,1,2,1,0,1,2,1,0,1,2,1,0,1,2,1,0,1,2,1,0,1,2,1,0,1,2,1,0,1,2,1,0,1,2,1,0,1,2,1,0,1,2,1,];
+    $admins = \App\Models\Admin::get();
+
+    $adminId = array();
+
+    foreach ($admins as $admin){
+        array_push($adminId, $admin->uuid);
+    }
     return [
         'uuid' => (string) Str::uuid(),
         'title' => $faker->title,
@@ -27,8 +35,8 @@ $factory->define(User::class, function (Faker $faker) {
         'phone' => $faker->phoneNumber,
         'address' => $faker->address,
         'active' => true,
-        'status'=>$category[random_int(0,2)],
-        'assigned_to'=>1,
+        'status'=>$category[$status[random_int(0,count($status)-1)]],
+        'assigned_to'=>$adminId[random_int(0,count($adminId)-1)],
         'password' => bcrypt('password'),
         'last_seen' => $faker->unixTime,
         'dob' => $faker->date('Y-m-d'),

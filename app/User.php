@@ -59,7 +59,7 @@ class User extends Authenticatable
     ];
 
     public function getassignedAttribute(){
-        $admin = Admin::where('id', $this->assigned_to)->first();
+        $admin = Admin::where('uuid', $this->assigned_to)->first();
         return !empty($admin)?$admin->first_name:"not assigned";
     }
 

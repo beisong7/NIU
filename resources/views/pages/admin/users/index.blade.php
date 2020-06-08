@@ -9,7 +9,7 @@
                     <h4 class="page-title mb-1">Accounts</h4>
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item text-white">Prospects </li>
+                        <li class="breadcrumb-item text-white">{{ empty($title)?'All Accounts':$title }}</li>
                     </ol>
                 </div>
             </div>
@@ -24,7 +24,9 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <h4 class="header-title">Prospects</h4>
+                            <h4 class="header-title">{{ empty($title)?'Accounts':$title }}</h4>
+                            <?php $info = $users->toArray() ?>
+                            <p>Showing : {{ $info['from'] }} - {{ $info['to'] }} <i class="ml-3 mr-3"> of </i> {{ $info['total'] }}</p>
 
                             @include('layouts.notice')
                             <div class="table-responsive">
@@ -50,7 +52,7 @@
                                             <td>{{ $user->creatChannel }}</td>
                                             <td>{{ $user->assigned }}</td>
                                             <td>{{ $user->status }}</td>
-                                            <td>{{ $user->created_at->diffForHumans() }}</td>
+                                            <td>{{ date('M d, Y', strtotime($user->created_at)) }}</td>
                                             <td>
                                                 <div class="btn-group" role="group">
                                                     <a href="#" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Process">

@@ -25,6 +25,7 @@ class AdminController extends Controller
             'photo',
             'last_seen',
         ])->orderBy('id', 'desc')->paginate(50);
+        $total = User::select(['id'])->get()->count();
         $leads = User::where('status', 'lead')->get()->count();
         $opportunity = User::where('status', 'opportunity')->get()->count();
         $outright = User::where('status', 'out right sale')->get()->count();
@@ -32,6 +33,7 @@ class AdminController extends Controller
         return view('pages.admin.dashboard.index')
             ->with([
                 'users' => $users,
+                'total' => $total,
                 'inactive'=>$inactive,
                 'opportunity'=>$opportunity,
                 'outright'=>$outright,
@@ -42,9 +44,24 @@ class AdminController extends Controller
     public function users(){
         $users = User::OrderBy('id', 'desc')->paginate(30);
 
+//        return $users;
+
         return view('pages.admin.users.index')
             ->with([
                 'users' => $users,
+            ]);
+    }
+
+    public function myClients(Request $request){
+        $admin = $request->user('admin');
+        $users = User::where('assigned_to', $admin->uuid)->OrderBy('id', 'desc')->paginate(30);
+
+//        return $users;
+
+        return view('pages.admin.users.index')
+            ->with([
+                'users' => $users,
+                'title' => "My Clients",
             ]);
     }
 

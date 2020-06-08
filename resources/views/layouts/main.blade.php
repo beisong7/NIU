@@ -21,7 +21,10 @@
     <link href="{{ asset('admin/libs/jqvmap/jqvmap.min.css') }}" rel="stylesheet" />
 
     <!-- Bootstrap Css -->
-    {{--<link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />--}}
+    @if($person->theme === 'dark')
+    @else
+    @endif
+    <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin/css/bootstrap-dark.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
     <link href="{{ asset('admin/css/icons.min.css') }}" rel="stylesheet" type="text/css" />

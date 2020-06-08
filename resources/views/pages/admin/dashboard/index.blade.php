@@ -43,7 +43,7 @@
                             <div class="media">
                                 <div class="media-body">
                                     <p class="text-muted mb-2">Total Accounts on System</p>
-                                    <h4>{{ $users->count() }}</h4>
+                                    <h4>{{ $total }}</h4>
                                     <hr>
                                     <p class="text-muted mb-2">Inactive Account </p>
                                     <h4>{{ $inactive->count() }}</h4>
@@ -57,15 +57,7 @@
                 <div class="col-xl-8">
                     <div class="card">
                         <div class="card-body">
-                            <form class="form-inline float-right">
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control form-control-sm datepicker-here" data-range="true"  data-multiple-dates-separator=" - " data-language="en" placeholder="Select Date" />
-                                    <div class="input-group-append">
-                                        <span class="input-group-text"><i class="far fa-calendar font-size-12"></i></span>
-                                    </div>
-                                </div>
-                            </form>
-                            <h5 class="header-title mb-4">Accounts Statistics</h5>
+                            <h5 class="header-title mb-4">Accounts: {{ date('Y') }} Summary</h5>
                             <div id="yearly-sale-chart" class="apex-charts"></div>
                         </div>
                     </div>
@@ -141,7 +133,7 @@
                                             <td>{{ $user->fullName }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->status }}</td>
-                                            <td>{{ $user->created_at->diffForHumans() }}</td>
+                                            <td>{{ date('M d, Y', strtotime($user->created_at)) }}</td>
                                             <td>
                                                 <div class="btn-group" role="group">
                                                     <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
@@ -179,9 +171,91 @@
     <script src="{{ asset('admin/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('admin/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 
-    <script src="{{ asset('admin/js/pages/dashboard.init.js') }}"></script>
+    {{--<script src="{{ asset('admin/js/pages/dashboard.init.js') }}"></script>--}}
+    <script>
+        $(function () {
+            $('[data-plugin="knob"]').knob()
+        });
 
-    {{--<script src="{{ asset('admin/js/pages/datatables.init.js') }}"></script>--}}
+        var chartData = {
+            months: 0,
+            leads: 0,
+            opportunity: 0,
+            sales: 0
+        };
+
+        $.get("{{ route('accounts.summary', "2020") }}", function(data, status){
+            console.log(data);
+            chartData.months = data[0];
+            chartData.leads = data[1];
+            chartData.opportunity = data[2];
+            chartData.sales = data[3];
+
+            var options = {
+                chart: {
+                    height: 350,
+                    type: "area",
+                    toolbar: {
+                        show: !1
+                    }
+                },
+                colors: ["#0234fc", "#ffa60c", "#56ea37"],
+                dataLabels: {
+                    enabled: !1
+                },
+                series: [{
+                    name: "Lead",
+                    data: chartData.leads
+                }, {
+                    name: "Opportunity",
+                    data: chartData.opportunity
+                } , {
+                    name: "Sale",
+                    data: chartData.sales
+                }
+                ],
+                grid: {
+                    yaxis: {
+                        lines: {
+                            show: !1
+                        }
+                    }
+                },
+                stroke: {
+                    width: 3,
+                    curve: "stepline"
+                },
+                markers: {
+                    size: 0
+                },
+                xaxis: {
+                    categories: chartData.months,
+                    title: {
+                        text: "Month"
+                    }
+                },
+//                fill: {
+//                    type: "gradient",
+//                    gradient: {
+//                        shadeIntensity: 1,
+//                        opacityFrom: .7,
+//                        opacityTo: .9,
+//                        stops: [0, 90, 100]
+//                    }
+//                },
+                legend: {
+                    position: "top",
+                    horizontalAlign: "right",
+                    floating: !0,
+                    offsetY: -25,
+                    offsetX: -5
+                }
+            };
+            (chart = new ApexCharts(document.querySelector("#yearly-sale-chart"), options)).render();
+        });
+
+
+    </script>
 
     <script>
         $('#datatable').DataTable();
