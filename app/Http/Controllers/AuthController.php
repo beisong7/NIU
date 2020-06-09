@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,10 +34,13 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
+            $user->message = 'success';
             return response()->json($user, 200);
         }
         else {
-            return response()->json(['message'=>'authentication failed'], 403);
+            $user = new User();
+            $user->message = 'authentication failed';
+            return response()->json($user, 403);
         }
     }
 

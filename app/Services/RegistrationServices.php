@@ -18,18 +18,20 @@ class RegistrationServices {
         $exist = User::where('email', $email)->first();
         if(!empty($exist)){
             if($type==='mobile'){
-                return response()->json(['message'=>'user already exist'], 403);
+                $user = new User();
+                $user->message = 'user already exist';
+                return response()->json($user, 403);
             }else{
                 return back()->withErrors(['email'=>'Account already exist with given email'])->withInput($request->input());
             }
 
         }
         $password = "";
-        $admins = Admin::select(['uuid'])->get();;
+        $admins = Admin::inRandomOrder()->first();
         $user = new User();
         if($type==='mobile'){
             $password = bcrypt($request->input('pass'));
-            $user->assigned_to = $admins[random_int(0, $admins->count()-1)];
+            $user->assigned_to = $admins->uuid;
             $user->status = "lead";
         }else{
             $staff = $request->user('admin');
