@@ -54,6 +54,7 @@ class RegistrationServices {
         if($type==='mobile'){
             //send email
             $this->sendMail("welcome", $user, $type);
+            $user->message = "success";
             return response()->json($user, 200);
         }else{
             return redirect()->route('users')->withMessage('New Prospect Created');
