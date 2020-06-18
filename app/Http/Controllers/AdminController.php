@@ -73,4 +73,12 @@ class AdminController extends Controller
         Auth::guard('admin')->logout();
         return back();
     }
+
+    public function editUserPage($uuid){
+        $user = User::where('uuid', $uuid)->first();
+
+        return !empty($user)? view('pages.admin.users.edit')->with([
+            'user'=>$user
+        ]) : back();
+    }
 }

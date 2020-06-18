@@ -55,15 +55,12 @@
                                             <td>{{ date('M d, Y', strtotime($user->created_at)) }}</td>
                                             <td>
                                                 <div class="btn-group" role="group">
-                                                    <a href="#" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Process">
+                                                    <a href="#" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Preview">
                                                         <i class="mdi mdi-check-circle"></i>
                                                     </a>
-                                                    <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    <a href="{{ route('edit.user', $user->uuid) }}" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
                                                         <i class="mdi mdi-pencil"></i>
-                                                    </button>
-                                                    <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                        <i class="mdi mdi-trash-can"></i>
-                                                    </button>
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>

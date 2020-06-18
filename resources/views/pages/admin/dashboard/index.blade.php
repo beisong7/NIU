@@ -136,15 +136,15 @@
                                             <td>{{ date('M d, Y', strtotime($user->created_at)) }}</td>
                                             <td>
                                                 <div class="btn-group" role="group">
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
+                                                    <a href="{{ route('preview.user', $user->uuid) }}" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Preview">
                                                         <i class="mdi mdi-eye"></i>
-                                                    </button>
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    </a>
+                                                    <a href="{{ route('edit.user', $user->uuid) }}" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
                                                         <i class="mdi mdi-pencil"></i>
-                                                    </button>
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                        <i class="mdi mdi-trash-can"></i>
-                                                    </button>
+                                                    </a>
+                                                    {{--<a href="#" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">--}}
+                                                        {{--<i class="mdi mdi-trash-can"></i>--}}
+                                                    {{--</a>--}}
                                                 </div>
                                             </td>
                                         </tr>

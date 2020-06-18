@@ -3,6 +3,8 @@
 namespace App\Services;
 
 use App\Models\Admin;
+use App\Models\Cashflow;
+use App\Models\Timeline;
 use App\Traits\Utility;
 use App\User;
 use Illuminate\Http\Request;
@@ -27,15 +29,15 @@ class RegistrationServices {
 
         }
         $password = "";
-        $admins = Admin::inRandomOrder()->first();
+        $admin = Admin::inRandomOrder()->first();
         $user = new User();
         if($type==='mobile'){
             $password = bcrypt($request->input('pass'));
-            $user->assigned_to = $admins->uuid;
+            $user->assigned_to = $admin->uuid;
             $user->status = "lead";
         }else{
             $staff = $request->user('admin');
-            $user->assigned_to = !empty($staff)?$staff->id:1;
+            $user->assigned_to = !empty($staff)?$staff->uuid:null;
             $password = bcrypt($request->input('phone'));
             $user->status = $request->input('status');
         }
@@ -51,6 +53,31 @@ class RegistrationServices {
         $user->last_seen = time();
         $user->save();
 
+        //handle extra information
+        if($user->status==="lead"){
+            $tl = new Timeline();
+            $tl->uuid = $this->generateId();
+            $tl->user_id = $user->uuid;
+            $tl->admin_id = $admin->uuid;
+            $tl->details = $this->setDetails('assigned', $user, $admin);
+            $tl->save();
+        }else{
+            $cf = new Cashflow();
+            $cf->uuid = $this->generateId();
+            $cf->user_id = $user->uuid;
+            $cf->admin_id = $admin->uuid;
+            $cf->type = $user->status;
+            $cf->amount = $request->input('amount');
+            $cf->save();
+
+            $tl = new Timeline();
+            $tl->uuid = $this->generateId();
+            $tl->user_id = $user->uuid;
+            $tl->admin_id = $admin->uuid;
+            $tl->details = $this->setDetails($user->status, $user, $admin);
+            $tl->save();
+        }
+
         if($type==='mobile'){
             //send email
             $this->sendMail("welcome", $user, $type);
@@ -60,6 +87,5 @@ class RegistrationServices {
             return redirect()->route('users')->withMessage('New Prospect Created');
         }
         //return user
-
     }
 }

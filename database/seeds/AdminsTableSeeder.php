@@ -13,7 +13,7 @@ class AdminsTableSeeder extends Seeder
     public function run()
     {
 
-        $emails = ['admin1@niu.com', 'admin2@nic.com', 'admin3@niu.com', 'admin4@niu.com'];
+        $emails = ['admin1@niu.com', 'admin2@niu.com', 'admin3@niu.com', 'admin4@niu.com'];
         $names = [['Benjamin', 'Joseph'], ['Abraham', 'Miles'], ['Clement', 'Elvis'], ['Ijeoma', 'Joy']];
 
         foreach ($emails as $key=>$email){

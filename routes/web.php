@@ -30,7 +30,10 @@ Route::group(['middleware'=>'admin_ware'], function () {
     Route::prefix('admin')->group(function () {
         Route::get('dashboard', 'AdminController@dashboard')->name('admin.dashboard');
         Route::get('create/user', 'AdminController@createUserPage')->name('create.user');
+        Route::get('preview/user', 'AdminController@previewUserPage')->name('preview.user');
         Route::post('create/user', 'RegisterController@createUser')->name('create.user');
+        Route::get('edit/user/{id}', 'AdminController@editUserPage')->name('edit.user');
+        Route::post('edit/user/{id}', 'RegisterController@updateUser')->name('update.user');
         Route::get('accounts', 'AdminController@users')->name('users');
         Route::get('my-clients', 'AdminController@myClients')->name('users.my');
         Route::get('reports', 'ReportController@index')->name('reports');
@@ -50,4 +53,8 @@ Route::get('/date', function(){
         date('Y-m-d h:i:s', time()),
         date('2020-06-07 06:56:21', time()),
     ];
+});
+
+Route::get('inspire', function (){
+   return \Illuminate\Foundation\Inspiring::quote();
 });
