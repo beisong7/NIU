@@ -113,7 +113,7 @@
                 },
                 stroke: {
                     width: 3,
-                    curve: "stepline"
+                    curve: "smooth"
                 },
                 markers: {
                     size: 0
