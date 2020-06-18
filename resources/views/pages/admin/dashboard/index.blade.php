@@ -223,7 +223,7 @@
                 },
                 stroke: {
                     width: 3,
-                    curve: "stepline"
+                    curve: "straight"
                 },
                 markers: {
                     size: 0
