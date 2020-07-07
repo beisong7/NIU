@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Models\Admin;
+use App\Models\Timeline;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -65,5 +66,9 @@ class User extends Authenticatable
 
     public function getcreatChannelAttribute(){
         return !empty($this->created_by)?$this->created_by:'admin';
+    }
+
+    public function timeline(){
+        return $this->hasMany(Timeline::class, 'user_id', 'uuid');
     }
 }

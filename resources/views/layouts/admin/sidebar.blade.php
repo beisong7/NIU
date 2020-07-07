@@ -37,12 +37,13 @@
                     </a>
                 </li>
 
-                <li>
+                {{--<li>
                     <a href="{{ route('reports') }}" class=" waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-analytics"></i></div>
                         <span>Reports</span>
                     </a>
                 </li>
+                --}}
 
             </ul>
 

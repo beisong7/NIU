@@ -21,7 +21,9 @@ Route::post('update/admin/password', 'AuthController@passwordResetUpdate')->name
 Route::post('register/mobile', 'RegisterController@mobileReg');
 Route::post('login/mobile', 'AuthController@mobileLogin');
 
-Route::get('/', 'HomeController@login')->name('home');
+Route::group(['middleware'=>'logged_in'], function () {
+    Route::get('/', 'HomeController@login')->name('home');
+});
 Route::get('/forgot-password', 'HomeController@resetPasswordStart')->name('password_reset.start');
 Route::get('/password-reset/{secret}/admin', 'AuthController@resetPasswordPage')->name('password.reset.page');
 
@@ -30,13 +32,13 @@ Route::group(['middleware'=>'admin_ware'], function () {
     Route::prefix('admin')->group(function () {
         Route::get('dashboard', 'AdminController@dashboard')->name('admin.dashboard');
         Route::get('create/user', 'AdminController@createUserPage')->name('create.user');
-        Route::get('preview/user', 'AdminController@previewUserPage')->name('preview.user');
+        Route::get('preview/user/{id}', 'AdminController@previewUserPage')->name('preview.user');
         Route::post('create/user', 'RegisterController@createUser')->name('create.user');
         Route::get('edit/user/{id}', 'AdminController@editUserPage')->name('edit.user');
         Route::post('edit/user/{id}', 'RegisterController@updateUser')->name('update.user');
         Route::get('accounts', 'AdminController@users')->name('users');
         Route::get('my-clients', 'AdminController@myClients')->name('users.my');
-        Route::get('reports', 'ReportController@index')->name('reports');
+//        Route::get('reports', 'ReportController@index')->name('reports');
         Route::get('accounts/summary/{year}', 'ReportController@summary')->name('accounts.summary');
         Route::get('accounts/financial/{year}/{end}', 'ReportController@financial')->name('accounts.financial');
         Route::get('accounts/update/financial', 'ReportController@financialUpdate')->name('accounts.update.financial');

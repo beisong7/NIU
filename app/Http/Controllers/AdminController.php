@@ -81,4 +81,14 @@ class AdminController extends Controller
             'user'=>$user
         ]) : back();
     }
+
+    public function previewUserPage($uuid){
+        $user = User::where('uuid', $uuid)->first();
+
+
+
+        return !empty($user)? view('pages.admin.users.preview')->with([
+            'user'=>$user
+        ]) : back();
+    }
 }
