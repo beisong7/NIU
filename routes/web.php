@@ -22,7 +22,8 @@ Route::post('register/mobile', 'RegisterController@mobileReg');
 Route::post('login/mobile', 'AuthController@mobileLogin');
 
 Route::group(['middleware'=>'logged_in'], function () {
-    Route::get('/', 'HomeController@login')->name('home');
+//    Route::get('/', 'HomeController@login')->name('home');
+    Route::get('/', 'TestController@index')->name('home');
 });
 Route::get('/forgot-password', 'HomeController@resetPasswordStart')->name('password_reset.start');
 Route::get('/password-reset/{secret}/admin', 'AuthController@resetPasswordPage')->name('password.reset.page');

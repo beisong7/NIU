@@ -23,8 +23,5 @@ class AdminsTableSeeder extends Seeder
                 'email' => $email,
             ]);
         }
-
-
-
     }
 }
